@@ -1,17 +1,14 @@
 <div>
-<p>Result</p>
+  <p>Result</p>
+{{this.result}}
+  {{#each result}}
 
-
-<h4>{{this.artists}}
-    {{#each artists}}
-
-    
-    {{/each}}
-
-</h4>
-<img src="{{this.image}}" alt="artist">
-<br>
-<a href='https://api.spotify.com/v1/search?query=Beatles&type=artist&offset=0&limit=20'>View Albums</a>
-
+    <h4>{{this.artists}}</h4>
+    <img src="{{this.items}}" alt="artist" />
+    <br />
+    <a
+      href="https://api.spotify.com/v1/search?query=Beatles&type=artist&offset=0&limit=20"
+    >View Albums</a>
+  {{/each}}
 
 </div>

@@ -34,7 +34,7 @@ app.get("/", (req,res)=>{
     res.render("index.hbs")
 })
 
-app.get("/artist-search", (req, res) => {
+app.get("/artist-search", (req, res, next) => {
   const { artistToFind } = req.query;
 
   if (artistToFind === undefined) {
@@ -46,11 +46,13 @@ app.get("/artist-search", (req, res) => {
         console.log("The received data from the API: ", data.body);
         // ----> 'HERE WHAT WE WANT TO DO AFTER RECEIVING THE DATA FROM THE API'
         res.render("artist-search-results.hbs", {
-          result: data,
+          result: data
         });
       })
-      .catch((err) =>
+      .catch((err) =>{
         console.log("The error while searching artists occurred: ", err)
+        next(err)}
+        
       );
   }
 });
