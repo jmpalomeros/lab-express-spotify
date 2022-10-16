@@ -1,9 +1,17 @@
 <div>
-<p>result</p>
+<p>Result</p>
 
-<h4>{{name}}</h4>
-<img src="{{image}}" alt="artist">
-<a href="">Albums</a>
+
+<h4>{{this.artists}}
+    {{#each artists}}
+
+    
+    {{/each}}
+
+</h4>
+<img src="{{this.image}}" alt="artist">
+<br>
+<a href='https://api.spotify.com/v1/search?query=Beatles&type=artist&offset=0&limit=20'>View Albums</a>
 
 
 </div>
